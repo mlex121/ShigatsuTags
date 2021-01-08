@@ -39,11 +39,6 @@ extension ID3v1 {
 // MARK: - Data Utilities
 
 extension Data {
-    /// Initialize a Data from a single byte.
-    init(byte: UInt8) {
-        self.init(CollectionOfOne(byte))
-    }
-
     /// Generate the string for a tag with the given encoding.
     ///
     /// This method strips any trailing padding zeros.

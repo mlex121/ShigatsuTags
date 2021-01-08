@@ -22,6 +22,8 @@
 		F6AEDA8525A58BED00B7829B /* Collection+ShigatsuTagsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEDA8425A58BED00B7829B /* Collection+ShigatsuTagsTests.swift */; };
 		F6AEDA8725A6AB7000B7829B /* AdjustibleRangeExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEDA8625A6AB7000B7829B /* AdjustibleRangeExpression.swift */; };
 		F6AEDA8A25A6B51C00B7829B /* AdjustibleRangeExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEDA8925A6B51C00B7829B /* AdjustibleRangeExpressionTests.swift */; };
+		F6AEDA9325A87C1100B7829B /* Data+ShigatsuTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEDA9225A87C1100B7829B /* Data+ShigatsuTags.swift */; };
+		F6AEDA9525A87C8400B7829B /* Data+ShigatsuTagsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEDA9425A87C8400B7829B /* Data+ShigatsuTagsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		F6AEDA8425A58BED00B7829B /* Collection+ShigatsuTagsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+ShigatsuTagsTests.swift"; sourceTree = "<group>"; };
 		F6AEDA8625A6AB7000B7829B /* AdjustibleRangeExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustibleRangeExpression.swift; sourceTree = "<group>"; };
 		F6AEDA8925A6B51C00B7829B /* AdjustibleRangeExpressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustibleRangeExpressionTests.swift; sourceTree = "<group>"; };
+		F6AEDA9225A87C1100B7829B /* Data+ShigatsuTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+ShigatsuTags.swift"; sourceTree = "<group>"; };
+		F6AEDA9425A87C8400B7829B /* Data+ShigatsuTagsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+ShigatsuTagsTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 			children = (
 				F6AEDA8625A6AB7000B7829B /* AdjustibleRangeExpression.swift */,
 				F6AEDA8225A58BC700B7829B /* Collection+ShigatsuTags.swift */,
+				F6AEDA9225A87C1100B7829B /* Data+ShigatsuTags.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			children = (
 				F6AEDA8925A6B51C00B7829B /* AdjustibleRangeExpressionTests.swift */,
 				F6AEDA8425A58BED00B7829B /* Collection+ShigatsuTagsTests.swift */,
+				F6AEDA9425A87C8400B7829B /* Data+ShigatsuTagsTests.swift */,
 				F6AEDA7425A46FF800B7829B /* ID3v1_1Tests.swift */,
 				F6AEDA6B25A463A200B7829B /* ID3v1Tests.swift */,
 			);
@@ -311,6 +317,7 @@
 				F6AEDA8325A58BC700B7829B /* Collection+ShigatsuTags.swift in Sources */,
 				F61E6C9C25A43263001E844F /* ID3v1+Genre.swift in Sources */,
 				F6AEDA6E25A4651500B7829B /* ID3v1_1.swift in Sources */,
+				F6AEDA9325A87C1100B7829B /* Data+ShigatsuTags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6AEDA9525A87C8400B7829B /* Data+ShigatsuTagsTests.swift in Sources */,
 				F6AEDA7725A4708800B7829B /* TestUtilities.swift in Sources */,
 				F6AEDA6C25A463A200B7829B /* ID3v1Tests.swift in Sources */,
 				F6AEDA8525A58BED00B7829B /* Collection+ShigatsuTagsTests.swift in Sources */,
