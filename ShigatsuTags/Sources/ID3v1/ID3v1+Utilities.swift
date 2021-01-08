@@ -39,26 +39,23 @@ extension ID3v1 {
 // MARK: - Data Utilities
 
 extension Data {
-    /// Generate the string for a tag with the given encoding.
+    /// Parse a string from an ID3v1-type field using the given encoding.
     ///
-    /// This method strips any trailing padding zeros.
-    func id3v1TagString(using encoding: String.Encoding) -> String? {
-        // Ignore the padding and attempt string conversion.
-        return String(bytes: prefix(upTo: startIndexOfID3v1ZeroPadding()), encoding: encoding)
-    }
+    /// This method strips zero-padding from the end by stripping from the first zero-byte onwards. In effect, we read the string like it's a null-terminated C-string.
+    ///
+    /// This method also strips trailing
+    func parseID3v1String(using encoding: String.Encoding) -> String? {
+        let indexOfFirstZeroByte = firstIndex(of: 0)
+        let beforeFirstZeroByte = prefix(upTo: indexOfFirstZeroByte ?? endIndex)
 
-    /// Finds the starting index of zero-padding in the ID3v1 tag data.
-    ///
-    /// If there is no padding, this will return `endIndex`. If there is no data, i.e. all padding,
-    /// this will return `endIndex`.
-    func startIndexOfID3v1ZeroPadding() -> Index {
-        guard let reversedIndex = reversed().firstIndex(where: { $0 != 0 }) else {
-            // The data is entirely zeros.
-            return startIndex
+        // Encode first.
+        guard let string = String(bytes: beforeFirstZeroByte, encoding: encoding) else {
+            return nil
         }
-        // `reversedIndex.base` points to the position _after_ the last data byte in the tag, i.e.
-        // the first padding byte.
-        return reversedIndex.base
+
+        // The implementations I've seen online strip whitespace from both sides. I think this is
+        // because WinAmp pads with whitespace, unsure.
+        return string.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     /// Right-pads the data with zeros until the data is the specified length.

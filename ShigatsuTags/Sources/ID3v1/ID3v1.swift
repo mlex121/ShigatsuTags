@@ -69,11 +69,11 @@ public struct ID3v1 {
         guard tagData[adjustedForStartIndex: ByteRange.header] == Constant.header else { return nil }
 
         // For each "string" field, read the data and verify we can decode it using the given encoding.
-        guard let title = tagData[adjustedForStartIndex: ByteRange.title].id3v1TagString(using: encoding) else { return nil }
-        guard let artist = tagData[adjustedForStartIndex: ByteRange.artist].id3v1TagString(using: encoding) else { return nil }
-        guard let album = tagData[adjustedForStartIndex: ByteRange.album].id3v1TagString(using: encoding) else { return nil }
-        guard let year = tagData[adjustedForStartIndex: ByteRange.year].id3v1TagString(using: encoding) else { return nil }
-        guard let comment = tagData[adjustedForStartIndex: ByteRange.comment].id3v1TagString(using: encoding) else { return nil }
+        guard let title = tagData[adjustedForStartIndex: ByteRange.title].parseID3v1String(using: encoding) else { return nil }
+        guard let artist = tagData[adjustedForStartIndex: ByteRange.artist].parseID3v1String(using: encoding) else { return nil }
+        guard let album = tagData[adjustedForStartIndex: ByteRange.album].parseID3v1String(using: encoding) else { return nil }
+        guard let year = tagData[adjustedForStartIndex: ByteRange.year].parseID3v1String(using: encoding) else { return nil }
+        guard let comment = tagData[adjustedForStartIndex: ByteRange.comment].parseID3v1String(using: encoding) else { return nil }
         // Genre is always 1 byte.
         let genre = Genre(rawValue: tagData[adjustedForStartIndex: ByteIndex.genre])
 

@@ -66,10 +66,10 @@ public struct ID3v1_1 {
         // ID3v1.1 tags start with the bytes "TAG".
         guard tagData[adjustedForStartIndex: ByteRange.header] == Constant.header else { return nil }
 
-        guard let title = tagData[adjustedForStartIndex: ByteRange.title].id3v1TagString(using: encoding) else { return nil }
-        guard let artist = tagData[adjustedForStartIndex: ByteRange.artist].id3v1TagString(using: encoding) else { return nil }
-        guard let album = tagData[adjustedForStartIndex: ByteRange.album].id3v1TagString(using: encoding) else { return nil }
-        guard let year = tagData[adjustedForStartIndex: ByteRange.year].id3v1TagString(using: encoding) else { return nil }
+        guard let title = tagData[adjustedForStartIndex: ByteRange.title].parseID3v1String(using: encoding) else { return nil }
+        guard let artist = tagData[adjustedForStartIndex: ByteRange.artist].parseID3v1String(using: encoding) else { return nil }
+        guard let album = tagData[adjustedForStartIndex: ByteRange.album].parseID3v1String(using: encoding) else { return nil }
+        guard let year = tagData[adjustedForStartIndex: ByteRange.year].parseID3v1String(using: encoding) else { return nil }
 
         // The comment is handled in a special way compared to ID3v1 tags:
         //     - If the second-last byte of the comment is 0 and the last byte is not, read the last
@@ -87,7 +87,7 @@ public struct ID3v1_1 {
             trackNumber = nil
         }
 
-        guard let comment = tagData[adjustedForStartIndex: commentByteRange].id3v1TagString(using: encoding) else { return nil }
+        guard let comment = tagData[adjustedForStartIndex: commentByteRange].parseID3v1String(using: encoding) else { return nil }
         // Genre is always 1 byte.
         let genre = ID3v1.Genre(rawValue: tagData[adjustedForStartIndex: ByteIndex.genre])
 
